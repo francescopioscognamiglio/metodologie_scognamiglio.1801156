@@ -25,29 +25,52 @@ import java.util.List;
 public class PhraseOMatic
 {
 	
+	/**
+	 * array di stringhe che contiene l'elenco delle parole
+	 */
 	private String[] elencoParole;
 	
+	/**
+	 * costruttore della classe che permette di definire l'elenco delle parole da utilizzare
+	 * @param elencoParole l'elenco delle parole da utilizzare
+	 */
 	public PhraseOMatic(String[] elencoParole)
 	{
 		this.elencoParole = Arrays.copyOf(elencoParole, elencoParole.length);
 	}
 	
-	public void setEspressioneCasuale(String[] elencoParole)
+	/**
+	 * metodo che setta l'elenco delle parole
+	 * @param elencoParole l'elenco delle parole
+	 */
+	public void setElencoParole(String[] elencoParole)
 	{
 		this.elencoParole = Arrays.copyOf(elencoParole, elencoParole.length);
 	}
 	
-	public String[] getEspressioneCasuale()
+	/**
+	 * metodo che restituisce l'elenco delle parole
+	 * @return l'elenco delle parole
+	 */
+	public String[] getElencoParole()
 	{
 		return Arrays.copyOf(elencoParole, elencoParole.length);
 	}
 	
+	/**
+	 * metodo che restituisce una parola casuale presa dall'elenco delle parole
+	 * @return una parola casuale presa dall'elenco delle parole
+	 */
 	public String getParolaRandom()
 	{
 		int pos = (int)(Math.random() * elencoParole.length);
 		return elencoParole[pos];
 	}
 	
+	/**
+	 * metodo che restituisce una rappresentazione sottoforma di stringa dell'elenco delle parole
+	 * @return una rappresentazione sottoforma di stringa dell'elenco delle parole
+	 */
 	public String toString()
 	{
 		String risultato = "[";
@@ -73,7 +96,7 @@ public class PhraseOMatic
 		System.out.println("------------------------------------------------------------------------------");
 		System.out.println("Di seguito vi sono tutte le possibili combinazioni tra i tre elenchi di parole:");
 		List<String> alreadyFounded = new ArrayList<String>();
-		while(alreadyFounded.size() < espressioneCasuale1.getEspressioneCasuale().length * espressioneCasuale2.getEspressioneCasuale().length * espressioneCasuale3.getEspressioneCasuale().length)
+		while(alreadyFounded.size() < espressioneCasuale1.getElencoParole().length * espressioneCasuale2.getElencoParole().length * espressioneCasuale3.getElencoParole().length)
 		{
 			String espressioneCasualeOutput = espressioneCasuale1.getParolaRandom() + " " + espressioneCasuale2.getParolaRandom() + " " + espressioneCasuale3.getParolaRandom();
 			if (!alreadyFounded.contains(espressioneCasualeOutput))
