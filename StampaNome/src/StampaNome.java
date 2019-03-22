@@ -1,4 +1,4 @@
-package stampanome;
+
 /**
  * Scrivere una classe StampaNome che,
  * dato in input uno o più nomi,
