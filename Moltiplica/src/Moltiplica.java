@@ -1,4 +1,4 @@
-package moltiplica;
+
 /**
  * Scrivere una classe Moltiplica che,
  * dati in input 2 numeri interi,
