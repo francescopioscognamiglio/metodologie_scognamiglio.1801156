@@ -1,6 +1,8 @@
 package menuArrayList;
 
 /**
+ * Un esempio: realizzare un semplice menù
+ * 
  * Scrivere una classe per testare la classe Menu
  * 
  * @author francescopioscognamiglio
