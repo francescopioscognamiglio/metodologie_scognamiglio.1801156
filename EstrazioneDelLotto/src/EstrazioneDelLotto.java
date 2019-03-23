@@ -2,6 +2,8 @@ import java.util.Arrays;
 import java.util.Random;
 
 /**
+ * Esercizio: EstrazioneDelLotto (Preparazione esonero)
+ * 
  * Progettare la classe EstrazioneDelLotto.
  * 
  * La classe implementa i seguenti metodi:
