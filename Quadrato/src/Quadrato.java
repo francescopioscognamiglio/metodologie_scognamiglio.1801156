@@ -1,3 +1,4 @@
+package quadrato;
 
 /**
  * Esercizi di riscaldamento
