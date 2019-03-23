@@ -1,5 +1,7 @@
 
 /**
+ * Esercizio: GestoreArray (Preparazione esonero)
+ * 
  * Progettare una classe GestoreArray costruita a partire da un array di interi.
  * 
  * La classe implementa i seguenti metodi:
