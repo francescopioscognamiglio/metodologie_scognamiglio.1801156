@@ -6,6 +6,7 @@ import java.util.List;
 
 /**
  * Esercizio: Phrase-O-Matic
+ * 
  * Progettare una classe i cui oggetti contengono tre elenchi di parole l1 , l2 e l3
  * La classe è in grado di emettere nuove espressioni costruite creando stringhe del tipo "a b c"
  * scegliendo casualmente dai tre rispettivi elenchi a ε l1, b ε l2, c ε l3
@@ -19,6 +20,7 @@ import java.util.List;
  * "salve egregio fannullone"
  * "ciao eclettico scapestrato"
  * "scialla astutissimo studente"
+ * 
  * @author francescopioscognamiglio
  *
  */
@@ -31,8 +33,8 @@ public class PhraseOMatic
 	private String[] elencoParole;
 	
 	/**
-	 * costruttore della classe che permette di definire l'elenco delle parole da utilizzare
-	 * @param elencoParole l'elenco delle parole da utilizzare
+	 * costruttore della classe che permette di definire l'elenco delle parole
+	 * @param elencoParole l'elenco delle parole
 	 */
 	public PhraseOMatic(String[] elencoParole)
 	{
@@ -40,7 +42,7 @@ public class PhraseOMatic
 	}
 	
 	/**
-	 * metodo che setta l'elenco delle parole
+	 * metodo che imposta l'elenco delle parole
 	 * @param elencoParole l'elenco delle parole
 	 */
 	public void setElencoParole(String[] elencoParole)
@@ -68,8 +70,8 @@ public class PhraseOMatic
 	}
 	
 	/**
-	 * metodo che restituisce una rappresentazione sottoforma di stringa dell'elenco delle parole
-	 * @return una rappresentazione sottoforma di stringa dell'elenco delle parole
+	 * metodo che restituisce una stringa che rappresenta l'elenco delle parole
+	 * @return una stringa che rappresenta l'elenco delle parole
 	 */
 	public String toString()
 	{
@@ -93,6 +95,9 @@ public class PhraseOMatic
 		System.out.println("Il secondo elenco di parole contiene: " + espressioneCasuale2.toString());
 		System.out.println("Il terzo elenco di parole contiene: " + espressioneCasuale3.toString());
 		
+		/*
+		 * Di seguito vi é un modo per generare tutte le combinazioni possibili
+		 */
 		System.out.println("------------------------------------------------------------------------------");
 		System.out.println("Di seguito vi sono tutte le possibili combinazioni tra i tre elenchi di parole:");
 		List<String> alreadyFounded = new ArrayList<String>();
