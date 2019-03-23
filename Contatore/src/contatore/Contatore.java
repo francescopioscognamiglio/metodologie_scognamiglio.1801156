@@ -1,11 +1,13 @@
 /**
  * Esercizio: Un contatore
+ * 
  * Vogliamo realizzare una classe che rappresenta un contatore
  * 
  * Il contatore permette di:
  * - Incrementare il conteggio attuale
  * - Ottenere il conteggio attuale
  * - Resettare il conteggio a 0 (o a un altro valore)
+ * 
  * @author francescopioscognamiglio
  *
  */
@@ -40,7 +42,7 @@ public class Contatore
 	 */
 	public int getValore()
 	{
-		return this.valore;
+		return valore;
 	}
 	
 	/**
@@ -48,19 +50,11 @@ public class Contatore
 	 */
 	public void incrementa()
 	{
-		this.valore++;
+		valore++;
 	}
 	
 	/**
-	 * metodo che decrementa il valore del contatore
-	 */
-	public void decrementa()
-	{
-		this.valore--;
-	}
-	
-	/**
-	 * metodo che resetta il valore del contatore
+	 * metodo che reimposta il valore del contatore a 0
 	 */
 	public void reset()
 	{
