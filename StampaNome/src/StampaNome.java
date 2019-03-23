@@ -1,12 +1,15 @@
 
 /**
- * Scrivere una classe StampaNome che,
- * dato in input uno o più nomi,
- * li stampi tra due righe di trattini.
+ * Esercizi per cominciare
+ * 
+ * Scrivere una classe StampaNome che, dato in input un nome,
+ * lo stampi tra due righe di trattini.
+ * 
  * Ad es.:
  * +---------+
  * Roberto
  * +---------+
+ * 
  * @author francescopioscognamiglio
  *
  */
@@ -17,12 +20,11 @@ public class StampaNome
 	{
 		final String trattini = "+---------+";
 		
-		for (String nome : args)
-		{
-			System.out.println(trattini);
-			System.out.println(nome);
-			System.out.println(trattini);
-		}
+		String nome = args[0];
+		
+		System.out.println(trattini);
+		System.out.println(nome);
+		System.out.println(trattini);
 	}
 	
 }
