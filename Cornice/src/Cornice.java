@@ -17,17 +17,19 @@
 public class Cornice
 {
 	
+	/**
+	 * metodo che stampa a video una cornice NxN
+	 * @param N la grandezza della cornice
+	 */
 	public void stampaCornice(int N)
 	{
 		for (int i = 0; i < N; i++)
 		{
 			for (int j = 0; j < N; j++)
-			{
 				if (j == 0 || j == N-1 || i == 0 || i == N-1)
 					System.out.print("*");
 				else
 					System.out.print(" ");
-			}
 			System.out.println();
 		}
 	}
