@@ -26,6 +26,7 @@ public class BarraDiEnergiaConPercentuale extends BarraDiEnergia
 	 * metodo che fornisce una rappresentazione sotto forma di stringa come BarraDiEnergia
 	 * ma stampando in coda alla stringa la percentuale del livello di riempimento.
 	 * Per esempio, se il livello è 3 su 10, la stringa sarà “OOO======= 30%”
+	 * @return una rappresentazione sotto forma di stringa
 	 */
 	@Override
 	public String toString()
