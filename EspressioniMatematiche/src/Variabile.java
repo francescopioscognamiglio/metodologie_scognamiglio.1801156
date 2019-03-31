@@ -12,7 +12,7 @@
 public class Variabile extends Espressione
 {
 	
-	String nome;
+	private String nome;
 	
 	public Variabile(String nome, double valore)
 	{
@@ -24,6 +24,11 @@ public class Variabile extends Espressione
 	public void setValore(double valore)
 	{
 		super.setValore(valore);
+	}
+	
+	public String getNome()
+	{
+		return nome;
 	}
 	
 }

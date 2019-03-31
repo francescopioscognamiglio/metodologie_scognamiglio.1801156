@@ -22,7 +22,7 @@ abstract public class Espressione
 	
 	protected double valore;
 	
-	public Espressione(double valore)
+	protected Espressione(double valore)
 	{
 		this.valore = valore;
 	}
