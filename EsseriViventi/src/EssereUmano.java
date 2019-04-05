@@ -37,7 +37,7 @@ public class EssereUmano extends EssereVivente
 		{
 			List<EssereVivente> esemplariFigli = new ArrayList<EssereVivente>();
 			
-			if (getSesso().equals(e.getSesso()))
+			if (!getSesso().equals(e.getSesso()))
 			{
 				Random random = new Random();
 				int numeroEsemplari = random.nextInt(1) + 1;
