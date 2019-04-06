@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -15,6 +14,11 @@ public class EssereUmano extends EssereVivente
 {
 	
 	/**
+	 * numero massimo di figli
+	 */
+	public static final int MAX_NUMERO_FIGLI = 2;
+	
+	/**
 	 * costruttore che imposta il sesso e il nome dell'essere umano
 	 * @param sesso il sesso dell'essere umano
 	 * @param nome il nome dell'essere umano
@@ -22,33 +26,24 @@ public class EssereUmano extends EssereVivente
 	public EssereUmano(Sesso sesso, String nome)
 	{
 		super(sesso, nome);
+		maxFigli = MAX_NUMERO_FIGLI;
 	}
 	
 	/**
-	 * metodo che fa riprodurre l'essere umano
-	 * @param e un altro essere umano
-	 * @return una lista contenente gli esseri umani creati
-	 * @throws Exception se l'essere umano e l'altro essere umano sono dello stesso sesso
+	 * metodo che genera una lista di esseri umani creati
+	 * @param numFigli il numero di figli da creare
+	 * @return una lista di esseri umani creati
 	 */
 	@Override
-	public List<EssereVivente> siRiproduceCon(EssereVivente e) throws Exception
+	public ArrayList<EssereVivente> genera(int numFigli)
 	{
-		if (isVivo())
-		{
-			List<EssereVivente> esemplariFigli = new ArrayList<EssereVivente>();
-			
-			if (!getSesso().equals(e.getSesso()))
-			{
-				Random random = new Random();
-				int numeroEsemplari = random.nextInt(1) + 1;
-				for (int i = 0; i < numeroEsemplari; i++)
-					esemplariFigli.add(new EssereUmano((random.nextBoolean() ? Sesso.MASCHIO : Sesso.FEMMINA), "figlio" + (i+1)));
-				
-				return esemplariFigli;
-			}
-			else throw new Exception("I due esseri viventi sono dello stesso sesso e non si possono riprodurre");
-		}
-		return null;
+		ArrayList<EssereVivente> esemplariFigli = new ArrayList<EssereVivente>();
+		
+		Random random = new Random();
+		for (int i = 0; i < numFigli; i++)
+			esemplariFigli.add(new EssereUmano((random.nextBoolean() ? Sesso.MASCHIO : Sesso.FEMMINA), "figlio" + (i+1)));
+		
+		return esemplariFigli;
 	}
 	
 }

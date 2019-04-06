@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Random;
 
 /**
@@ -16,6 +16,11 @@ public class Fenice extends EssereVivente
 {
 	
 	/**
+	 * numero massimo di figli
+	 */
+	public static final int MAX_NUMERO_FIGLI = 1;
+	
+	/**
 	 * costruttore che imposta il sesso e il nome della fenice
 	 * @param sesso il sesso della fenice
 	 * @param nome il nome della fenice
@@ -23,33 +28,24 @@ public class Fenice extends EssereVivente
 	public Fenice(Sesso sesso, String nome)
 	{
 		super(sesso, nome);
+		maxFigli = MAX_NUMERO_FIGLI;
 	}
 	
 	/**
-	 * metodo che fa riprodurre la fenice
-	 * @param e un'altra fenice
-	 * @return una lista contenente le fenici create
-	 * @throws Exception se la fenice e l'altra fenice sono dello stesso sesso
+	 * metodo che genera una lista di fenici create
+	 * @param numFigli il numero di figli da creare
+	 * @return una lista di fenici create
 	 */
 	@Override
-	public List<EssereVivente> siRiproduceCon(EssereVivente e) throws Exception
+	public ArrayList<EssereVivente> genera(int numFigli)
 	{
-		if (isVivo())
-		{
-			List<EssereVivente> esemplariFigli = new ArrayList<EssereVivente>();
-			
-			if (!getSesso().equals(e.getSesso()))
-			{
-				Random random = new Random();
-				int numeroEsemplari = random.nextInt(1);
-				for (int i = 0; i < numeroEsemplari; i++)
-					esemplariFigli.add(new Fenice((random.nextBoolean() ? Sesso.MASCHIO : Sesso.FEMMINA), "figlio" + (i+1)));
-				
-				return esemplariFigli;
-			}
-			else throw new Exception("I due esseri viventi sono dello stesso sesso e non si possono riprodurre");
-		}
-		return null;
+		ArrayList<EssereVivente> esemplariFigli = new ArrayList<EssereVivente>();
+		
+		Random random = new Random();
+		for (int i = 0; i < numFigli; i++)
+			esemplariFigli.add(new Fenice((random.nextBoolean() ? Sesso.MASCHIO : Sesso.FEMMINA), "figlio" + (i+1)));
+		
+		return esemplariFigli;
 	}
 	
 	/**

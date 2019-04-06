@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Random;
 
 /**
@@ -16,14 +16,19 @@ public class Gatto extends EssereVivente
 {
 	
 	/**
-	 * il numero massimo di vite di un gatto
+	 * numero massimo di figli
+	 */
+	public static final int MAX_NUMERO_FIGLI = 5;
+	
+	/**
+	 * numero massimo di vite di un gatto
 	 */
 	private static final int NUMERO_MASSIMO_DI_VITE = 7;
 	
 	/**
-	 * il numero di vite raggiunte dal gatto
+	 * numero di vite residue
 	 */
-	private int numeroVite;
+	private int viteResidue = NUMERO_MASSIMO_DI_VITE;
 	
 	/**
 	 * costruttore che imposta il sesso e il nome del gatto
@@ -33,34 +38,24 @@ public class Gatto extends EssereVivente
 	public Gatto(Sesso sesso, String nome)
 	{
 		super(sesso, nome);
-		numeroVite = 1;
+		maxFigli = MAX_NUMERO_FIGLI;
 	}
 	
 	/**
-	 * metodo che fa riprodurre il gatto
-	 * @param e un altro gatto
-	 * @return una lista contenente i gatti creati
-	 * @throws Exception se il gatto e l'altro gatto sono dello stesso sesso
+	 * metodo che restituisce una lista di gatti creati
+	 * @param numFigli il numero di figli da creare
+	 * @return una lista di gatti creati
 	 */
 	@Override
-	public List<EssereVivente> siRiproduceCon(EssereVivente e) throws Exception
+	public ArrayList<EssereVivente> genera(int numFigli)
 	{
-		if (isVivo())
-		{
-			List<EssereVivente> esemplariFigli = new ArrayList<EssereVivente>();
-			
-			if (!getSesso().equals(e.getSesso()))
-			{
-				Random random = new Random();
-				int numeroEsemplari = random.nextInt(5);
-				for (int i = 0; i < numeroEsemplari; i++)
-					esemplariFigli.add(new EssereUmano((random.nextBoolean() ? Sesso.MASCHIO : Sesso.FEMMINA), "figlio" + (i+1)));
-				
-				return esemplariFigli;
-			}
-			else throw new Exception("I due esseri viventi sono dello stesso sesso e non si possono riprodurre");
-		}
-		return null;
+		ArrayList<EssereVivente> esemplariFigli = new ArrayList<EssereVivente>();
+		
+		Random random = new Random();
+		for (int i = 0; i < numFigli; i++)
+			esemplariFigli.add(new Gatto((random.nextBoolean() ? Sesso.MASCHIO : Sesso.FEMMINA), "figlio" + (i+1)));
+		
+		return esemplariFigli;
 	}
 	
 	/**
@@ -69,10 +64,10 @@ public class Gatto extends EssereVivente
 	@Override
 	public void muore()
 	{
-		if (numeroVite <= NUMERO_MASSIMO_DI_VITE)
-			numeroVite++;
-		else
-			super.muore();
+		super.muore();
+		
+		viteResidue--;
+		if (viteResidue > 0) setIsVivo(true);
 	}
 	
 }

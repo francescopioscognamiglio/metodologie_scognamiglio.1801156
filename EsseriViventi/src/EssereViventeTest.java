@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,49 +14,42 @@ public class EssereViventeTest
 	
 	public static void main(String[] args) throws Exception
 	{
-		
 		EssereVivente essereUmano1 = new EssereUmano(EssereVivente.Sesso.MASCHIO, "Francesco Pio");
 		EssereVivente coniglio1 = new Coniglio(EssereVivente.Sesso.FEMMINA, "Alina");
-		EssereVivente gatto1 = new Gatto(EssereVivente.Sesso.FEMMINA, "Nerina");
-		PescePagliaccio pescePagliaccio1 = new PescePagliaccio(EssereVivente.Sesso.MASCHIO, "Nemo");
+		//EssereVivente gatto1 = new Gatto(EssereVivente.Sesso.FEMMINA, "Nerina");
+		PescePagliaccio pescePagliaccio1 = new PescePagliaccio(EssereVivente.Sesso.FEMMINA, "Nema");
 		EssereVivente fenice1 = new Fenice(EssereVivente.Sesso.MASCHIO, "RedFenix");
 		
-		essereUmano1.cresce();
-		essereUmano1.cresce();
-		essereUmano1.cresce();
-		essereUmano1.cresce();
-		essereUmano1.cresce();
-		essereUmano1.cresce();
-		essereUmano1.cresce();
-		essereUmano1.cresce();
-		essereUmano1.cresce();
-		essereUmano1.cresce();
-		essereUmano1.cresce();
-		System.out.println("L'essere umano é " + essereUmano1.getSesso() + " ed ha " + essereUmano1.getEta() + " anni");
 		
-		coniglio1.cresce();
-		coniglio1.cresce();
-		coniglio1.cresce();
-		System.out.println("Il coniglio é " + coniglio1.getSesso() + " ed ha " + coniglio1.getEta() + " anni");
-		List<EssereVivente> conigli = coniglio1.siRiproduceCon(new Coniglio(EssereVivente.Sesso.MASCHIO, "Raf"));
-		if (conigli != null) System.out.println("Sono nati " + conigli.size() + " coniglietti");
-		
-		pescePagliaccio1.cresce();
-		System.out.println("Il pesce pagliaccio é " + pescePagliaccio1.getSesso() + " ed ha " + pescePagliaccio1.getEta() + " anni");
-		pescePagliaccio1.cambiaSesso();
-		System.out.println("Il pesce pagliaccio é " + pescePagliaccio1.getSesso() + " ed ha " + pescePagliaccio1.getEta() + " anni");
-		pescePagliaccio1.cresce();
-		pescePagliaccio1.cresce();
-		pescePagliaccio1.cresce();
-		pescePagliaccio1.cresce();
-		System.out.println("Il pesce pagliaccio é " + pescePagliaccio1.getSesso() + " ed ha " + pescePagliaccio1.getEta() + " anni");
-		
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < 4; i++)
 		{
-			fenice1.cresce();
-			System.out.println("La fenice é " + fenice1.getSesso() + " ed ha " + fenice1.getEta() + " anni");
+			ArrayList<EssereVivente> figli = new ArrayList<EssereVivente>();
+			switch (i)
+			{
+			case 0:
+				figli = new EssereUmano(EssereVivente.Sesso.FEMMINA, "Marta").siRiproduceCon(essereUmano1);
+				break;
+			case 1:
+				figli = coniglio1.siRiproduceCon(new Coniglio(EssereVivente.Sesso.MASCHIO, "Cin"));
+				break;
+			case 2:
+				figli = pescePagliaccio1.siRiproduceCon(new PescePagliaccio(EssereVivente.Sesso.MASCHIO, "Cari"));
+				break;
+			case 3:
+				figli = new Fenice(EssereVivente.Sesso.FEMMINA, "Fen").siRiproduceCon(fenice1);
+				break;
+			}
+			System.out.println("Sono nati " + figli.size() + " " + (figli.size() > 0 ? figli.get(0).getClass().getSimpleName() : "figli"));
 		}
 		
+		try {
+			pescePagliaccio1.cresce();
+			pescePagliaccio1.cresce();
+			pescePagliaccio1.cresce();
+			System.out.println(pescePagliaccio1.getClass().getSimpleName() + " si chiama " + pescePagliaccio1.getNome() + " ed é " + pescePagliaccio1.getSesso());
+		} catch (EssereMortoException em) {
+			System.out.println(pescePagliaccio1.getClass().getSimpleName() + " é morto");
+		}
 	}
 	
 }

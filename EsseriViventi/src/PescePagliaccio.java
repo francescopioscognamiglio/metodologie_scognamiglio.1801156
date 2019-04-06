@@ -37,12 +37,10 @@ public class PescePagliaccio extends Pesce
 	 * metodo che fa crescere il pesce pagliaccio
 	 */
 	@Override
-	public void cresce()
+	public void cresce() throws EssereMortoException
 	{
 		super.cresce();
-		if (isVivo())
-			if (new Random().nextBoolean())
-				cambiaSesso();
+		if (isVivo() && new Random().nextBoolean()) cambiaSesso();
 	}
 	
 }

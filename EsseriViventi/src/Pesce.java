@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Random;
 
 /**
@@ -15,6 +15,16 @@ public class Pesce extends EssereVivente
 {
 	
 	/**
+	 * numero minimo di figli
+	 */
+	public static final int MIN_NUMERO_FIGLI = 30;
+	
+	/**
+	 * numero massimo di figli
+	 */
+	public static final int MAX_NUMERO_FIGLI = 100;
+	
+	/**
 	 * costruttore che imposta il sesso e il nome del pesce
 	 * @param sesso il sesso del pesce
 	 * @param nome il nome del pesce
@@ -22,33 +32,25 @@ public class Pesce extends EssereVivente
 	public Pesce(Sesso sesso, String nome)
 	{
 		super(sesso, nome);
+		minFigli = MIN_NUMERO_FIGLI;
+		maxFigli = MAX_NUMERO_FIGLI;
 	}
 	
 	/**
-	 * metodo che fa riprodurre il pesce
-	 * @param e un altro pesce
-	 * @return una lista contenente i pesci creati
-	 * @throws Exception se il pesce e l'altro pesce sono dello stesso sesso
+	 * metodo che restituisce una lista di pesci creati
+	 * @param numFigli il numero di figli da creare
+	 * @return una lista di pesci creati
 	 */
 	@Override
-	public List<EssereVivente> siRiproduceCon(EssereVivente e) throws Exception
+	public ArrayList<EssereVivente> genera(int numFigli)
 	{
-		if (isVivo())
-		{
-			List<EssereVivente> esemplariFigli = new ArrayList<EssereVivente>();
-			
-			if (!getSesso().equals(e.getSesso()))
-			{
-				Random random = new Random();
-				int numeroEsemplari = random.nextInt(71) + 30;
-				for (int i = 0; i < numeroEsemplari; i++)
-					esemplariFigli.add(new Pesce((random.nextBoolean() ? Sesso.MASCHIO : Sesso.FEMMINA), "figlio" + (i+1)));
-				
-				return esemplariFigli;
-			}
-			else throw new Exception("I due esseri viventi sono dello stesso sesso e non si possono riprodurre");
-		}
-		return null;
+		ArrayList<EssereVivente> esemplariFigli = new ArrayList<EssereVivente>();
+		
+		Random random = new Random();
+		for (int i = 0; i < numFigli; i++)
+			esemplariFigli.add(new Pesce((random.nextBoolean() ? Sesso.MASCHIO : Sesso.FEMMINA), "figlio" + (i+1)));
+		
+		return esemplariFigli;
 	}
 	
 }

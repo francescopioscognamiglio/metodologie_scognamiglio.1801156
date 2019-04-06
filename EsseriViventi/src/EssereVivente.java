@@ -1,4 +1,5 @@
-import java.util.List;
+import java.util.ArrayList;
+
 import java.util.Random;
 
 /**
@@ -32,17 +33,17 @@ abstract public class EssereVivente
 	}
 	
 	/**
-	 * l'età dell'essere vivente
+	 * età dell'essere vivente
 	 */
 	private int eta;
 	
 	/**
-	 * il sesso dell'essere vivente
+	 * sesso dell'essere vivente
 	 */
 	private Sesso sesso;
 	
 	/**
-	 * il nome dell'essere vivente
+	 * nome dell'essere vivente
 	 */
 	private String nome;
 	
@@ -50,6 +51,16 @@ abstract public class EssereVivente
 	 * contiene true se l'essere vivente é vivo; false altrimenti
 	 */
 	private boolean isVivo;
+	
+	/**
+	 * numero minimo di figli che può generare l'essere vivente
+	 */
+	protected int minFigli = 0;
+	
+	/**
+	 * numero massimo di figli che può generare l'essere vivente
+	 */
+	protected int maxFigli = 1;
 	
 	/**
 	 * costruttore che imposta il sesso e il nome dell'essere vivente
@@ -108,14 +119,14 @@ abstract public class EssereVivente
 	
 	/**
 	 * metodo che fa crescere l'essere vivente
+	 * @throws EssereMortoException se l'essere vivente é morto
 	 */
-	public void cresce()
+	public void cresce() throws EssereMortoException
 	{
-		if (isVivo())
-		{
-			eta++;
-			if (new Random().nextBoolean()) muore();
-		}
+		if (!isVivo()) throw new EssereMortoException();
+	
+		eta++;
+		if (new Random().nextBoolean()) muore();
 	}
 	
 	/**
@@ -128,21 +139,39 @@ abstract public class EssereVivente
 	
 	/**
 	 * metodo che fa mangiare l'essere vivente
+	 * @throws EssereMortoException se l'essere vivente é morto
 	 */
-	public void mangia()
+	public void mangia() throws EssereMortoException
 	{
-		if (isVivo())
-		{
-			System.out.println("Mangio...");
-		}
+		if (!isVivo()) throw new EssereMortoException();
+		
+		System.out.println("Mangio...");
 	}
 	
 	/**
-	 * metodo astratto che fa riprodurre l'essere vivente
-	 * @param e un altro essere vivente
+	 * metodo che fa riprodurre l'essere vivente con l'essere vivente in input
+	 * @param e l'essere vivente con il quale riprodursi
 	 * @return una lista contenente gli esseri viventi creati
-	 * @throws Exception se l'essere vivente e l'altro essere vivente sono dello stesso sesso
+	 * @throws RiproduzioneException se l'essere vivente e l'essere vivente in input non sono della stessa specie
+	 * @throws EssereMortoException se l'essere vivente é morto
+	 * @throws StessoSessoException se l'essere vivente e l'essere vivente in input sono dello stesso sesso
+	 * @throws PartorireException se l'essere vivente non é una femmina
 	 */
-	abstract public List<EssereVivente> siRiproduceCon(EssereVivente e) throws Exception;
+	public ArrayList<EssereVivente> siRiproduceCon(EssereVivente e) throws RiproduzioneException, EssereMortoException
+	{
+		if (getClass() != e.getClass()) throw new RiproduzioneException();
+		if (!isVivo()) throw new EssereMortoException();
+		if (getSesso() == e.getSesso()) throw new StessoSessoException();
+		if (getSesso().equals(Sesso.MASCHIO)) throw new PartorireException();
+		
+		return genera(new Random().nextInt(maxFigli - minFigli) + minFigli);
+	}
+	
+	/**
+	 * metodo astratto che genera una lista di esseri viventi creati
+	 * @param numFigli il numero di figli da creare
+	 * @return una lista di esseri viventi creati
+	 */
+	abstract protected ArrayList<EssereVivente> genera(int numFigli);
 	
 }
