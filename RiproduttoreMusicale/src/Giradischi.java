@@ -9,6 +9,10 @@
  */
 public class Giradischi extends RiproduttoreMusicale
 {
+	/**
+	 * metodo che inserisce il supporto utilizzato dal giradischi
+	 * @param supporto il supporto utilizzato dal giradischi
+	 */
 	@Override
 	public void inserisciSupporto(Supporto supporto) throws SupportoNonSupportatoException
 	{

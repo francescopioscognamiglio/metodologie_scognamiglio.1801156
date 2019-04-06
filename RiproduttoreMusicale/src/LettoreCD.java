@@ -9,6 +9,10 @@
  */
 public class LettoreCD extends RiproduttoreMusicale
 {
+	/**
+	 * metodo che inserisce il supporto utilizzato dal lettore CD
+	 * @param supporto il supporto utilizzato dal lettore CD
+	 */
 	@Override
 	public void inserisciSupporto(Supporto supporto) throws SupportoNonSupportatoException
 	{

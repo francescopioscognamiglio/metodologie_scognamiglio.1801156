@@ -9,6 +9,10 @@
  */
 public class LettoreMP3 extends RiproduttoreMusicale
 {
+	/**
+	 * metodo che inserisce il supporto utilizzato dal lettore MP3
+	 * @param supporto il supporto utilizzato dal lettore MP3
+	 */
 	@Override
 	public void inserisciSupporto(Supporto supporto) throws SupportoNonSupportatoException
 	{
