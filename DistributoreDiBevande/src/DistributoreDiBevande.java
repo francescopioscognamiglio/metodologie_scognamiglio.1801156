@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -24,10 +26,16 @@ public class DistributoreDiBevande
 	 * saldo del distributore di bevande
 	 */
 	private double saldo;
+	
 	/**
 	 * prodotti presenti nel distributore di bevande
 	 */
-	private Prodotto[] prodotti;
+	private List<Prodotto> prodotti;
+	
+	/**
+	 * numero di prodotti presenti nel distributore di bevande
+	 */
+	private int numeroProdotti;
 	
 	/**
 	 * costruttore che riceve in input il numero di prodotti che contiene il distributore di bevande
@@ -36,7 +44,8 @@ public class DistributoreDiBevande
 	public DistributoreDiBevande(final int N)
 	{
 		saldo = 0.0;
-		prodotti = new Prodotto[N];
+		prodotti = new ArrayList<Prodotto>();
+		numeroProdotti = N;
 	}
 	
 	/**
@@ -45,20 +54,16 @@ public class DistributoreDiBevande
 	public void carica()
 	{
 		Random random = new Random();
-		for (int i = 0; i < prodotti.length; i++)
+		for (int i = 0; i < numeroProdotti; i++)
 		{
+			Prodotto p = null;
 			switch(random.nextInt(3))
 			{
-			case 0:
-				prodotti[i] = new Caffe(1.45);
-				break;
-			case 1:
-				prodotti[i] = new Cappuccino(2.0);
-				break;
-			case 2:
-				prodotti[i] = new Cioccolato(3.2);
-				break;
+			case 0: p = new Caffe(); break;
+			case 1: p = new Cappuccino(); break;
+			case 2: p = new Cioccolato(); break;
 			}
+			prodotti.add(p);
 		}
 	}
 	
@@ -79,11 +84,12 @@ public class DistributoreDiBevande
 	 */
 	public Prodotto getProdotto(int k)
 	{
-		if (k < 0 || k >= prodotti.length) return null;
-		Prodotto p = prodotti[k];
-		if (saldo < p.getPrezzo()) return null;
-		setSaldo(saldo - p.getPrezzo());
-		return p;
+		// un modo: per mantenere l'ordine degli elementi settiamo null alla posizione da cui abbiamo prelevato
+		/*Prodotto p = prodotti.get(k);
+		prodotti.set(k, null);
+		return prodotto;*/
+		// altro modo: il metodo set() mi restituisce l'elemento che era presente prima di settarlo a null
+		return prodotti.set(k, null);
 	}
 	
 	/**
