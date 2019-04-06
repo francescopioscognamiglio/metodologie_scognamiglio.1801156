@@ -12,9 +12,28 @@
 public class Costante extends Espressione
 {
 	
+	/**
+	 * valore della costante
+	 */
+	private double valore;
+	
+	/**
+	 * costruttore che imposta il valore della costante
+	 * @param valore il valore della costante
+	 */
 	public Costante(double valore)
 	{
-		super(valore);
+		this.valore = valore;
+	}
+	
+	/**
+	 * metodo getter che restituisce il valore della costante
+	 * @return il valore della costante
+	 */
+	@Override
+	public double getValore()
+	{
+		return valore;
 	}
 	
 }

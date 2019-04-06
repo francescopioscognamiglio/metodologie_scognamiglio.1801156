@@ -17,13 +17,28 @@
  * @author francescopioscognamiglio
  *
  */
-abstract public class Espressione
+abstract public class EspressioneBinaria extends Espressione
 {
 	
 	/**
-	 * metodo astratto che restituisce il valore dell'espressione
-	 * @return il valore dell'espressione
+	 * prima espressione dell'espressione binaria
 	 */
-	abstract public double getValore();
+	protected Espressione espressione1;
+	
+	/**
+	 * seconda espressione dell'espressione binaria
+	 */
+	protected Espressione espressione2;
+	
+	/**
+	 * costruttore che imposta l'espressione1 e l'espressione2 dell'espressione binaria
+	 * @param espressione1 la prima espressione dell'espressione binaria
+	 * @param espressione2 la seconda espressione dell'espressione binaria
+	 */
+	public EspressioneBinaria(Espressione espressione1, Espressione espressione2)
+	{
+		this.espressione1 = espressione1;
+		this.espressione2 = espressione2;
+	}
 	
 }

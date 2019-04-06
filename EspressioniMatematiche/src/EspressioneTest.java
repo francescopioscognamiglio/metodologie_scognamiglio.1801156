@@ -2,7 +2,7 @@
 /**
  * Esercizio: Espressioni matematiche
  * 
- * Costruire quindi l’espressione –(5+(3/2)-2)*x e calcolarne il valore quando la variabile x vale 3 e quando la variabile x vale 6
+ * Costruire quindi diverse espressioni e controllarne il valore
  * 
  * @author francescopioscognamiglio
  *
@@ -12,26 +12,27 @@ public class EspressioneTest
 	
 	public static void main(String[] args)
 	{
-		Costante costante1 = new Costante(3.0);
-		Costante costante2 = new Costante(2.0);
-		EspressioneComposta espressioneComposta1 = new EspressioneComposta(costante1, EspressioneComposta.Operatore.DIVISIONE, costante2);
+		// -(5*x)+y
+		// new EspressioneNegata(new Somma(new Moltiplicazione(5, new Variabile("x", 3)), new Variabile("y", 5)))
+		Espressione e = new Addizione(new EspressioneNegata(new Moltiplicazione(new Costante(5), new Variabile("x", 3))), new Variabile("y", 5));
+		System.out.println("Il valore dell'espressione -(5*x) + y con x=3 e y=5 e': " + e.getValore());
 		
-		Costante costante3 = new Costante(5.0);
-		EspressioneComposta espressioneComposta2 = new EspressioneComposta(costante3, EspressioneComposta.Operatore.ADDIZIONE, espressioneComposta1);
-		
-		Costante costante4 = new Costante(2.0);
-		EspressioneComposta espressioneComposta3 = new EspressioneComposta(espressioneComposta2, EspressioneComposta.Operatore.SOTTRAZIONE, costante4);
-		
-		Costante costante5 = new Costante(0.0);
-		EspressioneComposta espressioneComposta4 = new EspressioneComposta(costante5, EspressioneComposta.Operatore.SOTTRAZIONE, espressioneComposta3);
-		
-		Variabile variabile1 = new Variabile("x", 3);
-		EspressioneComposta espressioneComposta5 = new EspressioneComposta(espressioneComposta4, EspressioneComposta.Operatore.MOLTIPLICAZIONE, variabile1);
-		
-		System.out.println("Il valore dell'espressione \"–(5+(3/2)-2)*x\" con x=3 e': " + espressioneComposta5.getValore());
-		variabile1.setValore(6);
-		espressioneComposta5 = new EspressioneComposta(espressioneComposta4, EspressioneComposta.Operatore.MOLTIPLICAZIONE, variabile1);
-		System.out.println("Il valore dell'espressione \"–(5+(3/2)-2)*x\" con x=6 e': " + espressioneComposta5.getValore());
+		// -(5+(3/2)-2)*x valore quando la variabile x vale 3 e quando la variabile x vale 6
+		Variabile x = new Variabile("x", 3);
+		Espressione e1 =
+				new Moltiplicazione(
+						new EspressioneNegata(
+								new Sottrazione(
+										new Addizione(
+												new Costante(5),
+												new Divisione(
+														new Costante(3),
+														new Costante(2))),
+										new Costante(2))),
+						x);
+		System.out.println("Il valore dell'espressione -(5+(3/2)-2)*x con x=3 e': " + e1.getValore());
+		x.setValore(6);
+		System.out.println("Il valore dell'espressione -(5+(3/2)-2)*x con x=6 e': " + e1.getValore());
 	}
 	
 }
