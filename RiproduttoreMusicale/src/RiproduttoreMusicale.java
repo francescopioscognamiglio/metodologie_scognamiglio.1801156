@@ -44,6 +44,10 @@ abstract public class RiproduttoreMusicale
 	 */
 	protected Supporto supporto;
 	/**
+	 * il brano eseguito dal riproduttore musicale
+	 */
+	protected Brano brano;
+	/**
 	 * la posizione del riproduttore musicale
 	 */
 	private int posizione = 0;
@@ -64,7 +68,14 @@ abstract public class RiproduttoreMusicale
 	public void espelliSupporto()
 	{
 		supporto = null;
-		reset();
+		brano = null;
+		posizione = 0;
+		inEsecuzione = false;
+	}
+	
+	private void setBrano(int posizione)
+	{
+		brano = supporto.getBrano(posizione);
 	}
 	
 	/**
@@ -74,7 +85,7 @@ abstract public class RiproduttoreMusicale
 	public Brano getBrano()
 	{
 		if (!inEsecuzione) return null;
-		return supporto.getBrano(posizione);
+		return brano;
 	}
 	
 	/**
@@ -99,7 +110,7 @@ abstract public class RiproduttoreMusicale
 	public void next()
 	{
 		if (posizione >= supporto.getNumeroBrani()-1) return;
-		posizione++;
+		setBrano(++posizione);
 	}
 	
 	/**
@@ -108,13 +119,7 @@ abstract public class RiproduttoreMusicale
 	public void prev()
 	{
 		if (posizione <= 0) return;
-		posizione--;
-	}
-	
-	public void reset()
-	{
-		posizione = 0;
-		stop();
+		setBrano(--posizione);
 	}
 	
 	/**
@@ -124,7 +129,6 @@ abstract public class RiproduttoreMusicale
 	@Override
 	public String toString()
 	{
-		Brano brano = supporto.getBrano(posizione);
 		if (brano == null) return null;
 		return "\"" + brano.getTitolo() + "\" di " + brano.getCantante();
 	}
