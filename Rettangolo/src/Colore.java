@@ -30,7 +30,7 @@ public class Colore
 	/**
 	 * campo di tipo array di interi che contiene il colore in formato RGB
 	 */
-	private int[] colore;
+	private int[] colore = new int[3];
 	
 	/**
 	 * costruttore della classe che permette di impostare il colore in formato RGB
