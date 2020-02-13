@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="fabbricasemantica">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="metodologie2019_homework3.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/metodologie2019_homework3/metodologie2019_homework3">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="lcl-jlt-2.4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/francesco/Sapienza/metodologie_di_programmazione/project/eclipse_workspace/libs/BabelNet-API-4.0.1/lib/lcl-jlt-2.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="lucene-queryparser-7.2.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/francesco/Sapienza/metodologie_di_programmazione/project/eclipse_workspace/libs/BabelNet-API-4.0.1/lib/lucene-queryparser-7.2.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="icu4j-56.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/francesco/Sapienza/metodologie_di_programmazione/project/eclipse_workspace/libs/BabelNet-API-4.0.1/lib/icu4j-56.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-lang-2.3.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/francesco/Sapienza/metodologie_di_programmazione/project/eclipse_workspace/libs/BabelNet-API-4.0.1/lib/commons-lang-2.3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="logback-core-1.2.3.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/francesco/Sapienza/metodologie_di_programmazione/project/eclipse_workspace/libs/BabelNet-API-4.0.1/lib/logback-core-1.2.3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-collections-3.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/francesco/Sapienza/metodologie_di_programmazione/project/eclipse_workspace/libs/BabelNet-API-4.0.1/lib/commons-collections-3.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="slf4j-api-1.7.25.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/francesco/Sapienza/metodologie_di_programmazione/project/eclipse_workspace/libs/BabelNet-API-4.0.1/lib/slf4j-api-1.7.25.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="gson-2.8.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/francesco/Sapienza/metodologie_di_programmazione/project/eclipse_workspace/libs/BabelNet-API-4.0.1/lib/gson-2.8.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-configuration-1.5.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/francesco/Sapienza/metodologie_di_programmazione/project/eclipse_workspace/libs/BabelNet-API-4.0.1/lib/commons-configuration-1.5.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="httpcore-4.3.3.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/francesco/Sapienza/metodologie_di_programmazione/project/eclipse_workspace/libs/BabelNet-API-4.0.1/lib/httpcore-4.3.3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-digester-1.8.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/francesco/Sapienza/metodologie_di_programmazione/project/eclipse_workspace/libs/BabelNet-API-4.0.1/lib/commons-digester-1.8.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-logging-1.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/francesco/Sapienza/metodologie_di_programmazione/project/eclipse_workspace/libs/BabelNet-API-4.0.1/lib/commons-logging-1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="lucene-queries-7.2.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/francesco/Sapienza/metodologie_di_programmazione/project/eclipse_workspace/libs/BabelNet-API-4.0.1/lib/lucene-queries-7.2.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="lucene-sandbox-7.2.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/francesco/Sapienza/metodologie_di_programmazione/project/eclipse_workspace/libs/BabelNet-API-4.0.1/lib/lucene-sandbox-7.2.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="lucene-analyzers-common-7.2.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/francesco/Sapienza/metodologie_di_programmazione/project/eclipse_workspace/libs/BabelNet-API-4.0.1/lib/lucene-analyzers-common-7.2.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="lucene-core-7.2.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/francesco/Sapienza/metodologie_di_programmazione/project/eclipse_workspace/libs/BabelNet-API-4.0.1/lib/lucene-core-7.2.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="logback-classic-1.2.3.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/francesco/Sapienza/metodologie_di_programmazione/project/eclipse_workspace/libs/BabelNet-API-4.0.1/lib/logback-classic-1.2.3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="babelscape-data-commons-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/francesco/Sapienza/metodologie_di_programmazione/project/eclipse_workspace/libs/BabelNet-API-4.0.1/lib/babelscape-data-commons-1.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-codec-1.8.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/francesco/Sapienza/metodologie_di_programmazione/project/eclipse_workspace/libs/BabelNet-API-4.0.1/lib/commons-codec-1.8.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="guava-23.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/francesco/Sapienza/metodologie_di_programmazione/project/eclipse_workspace/libs/BabelNet-API-4.0.1/lib/guava-23.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-beanutils-core-1.7.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/francesco/Sapienza/metodologie_di_programmazione/project/eclipse_workspace/libs/BabelNet-API-4.0.1/lib/commons-beanutils-core-1.7.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jwi-2.2.3.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/francesco/Sapienza/metodologie_di_programmazione/project/eclipse_workspace/libs/BabelNet-API-4.0.1/lib/jwi-2.2.3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="babelnet-api-4.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/francesco/Sapienza/metodologie_di_programmazione/project/eclipse_workspace/libs/BabelNet-API-4.0.1/babelnet-api-4.0.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-beanutils-1.7.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/francesco/Sapienza/metodologie_di_programmazione/project/eclipse_workspace/libs/BabelNet-API-4.0.1/lib/commons-beanutils-1.7.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="httpclient-4.3.6.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/francesco/Sapienza/metodologie_di_programmazione/project/eclipse_workspace/libs/BabelNet-API-4.0.1/lib/httpclient-4.3.6.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="java-output-path" value="/fabbricasemantica/build/classes"/>
+        <property name="context-root" value="fabbricasemantica"/>
+    </wb-module>
+</project-modules>

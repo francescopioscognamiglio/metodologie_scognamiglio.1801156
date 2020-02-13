@@ -1,0 +1,24 @@
+{
+  "candies": [
+    {
+      "name": "jquery",
+      "version": "1.10.0-20170726",
+      "lastUpdateTimestamp": 1501691304000,
+      "modelVersion": "unknown",
+      "transpilerVersion": "2.0.0",
+      "jsOutputDirPath": "/home/francesco/Sapienza/metodologie_di_programmazione/project/eclipse_workspace/fabbricasemanticajsweet/webapp",
+      "jsDirPath": "META-INF/resources/webjars/jquery/1.10.0-20170726",
+      "jsFilesPaths": []
+    },
+    {
+      "name": "jsweet-core",
+      "version": "6",
+      "lastUpdateTimestamp": 1552257172000,
+      "modelVersion": "unknown",
+      "transpilerVersion": "${jsweet.transpiler.version}",
+      "jsOutputDirPath": "/home/francesco/Sapienza/metodologie_di_programmazione/project/eclipse_workspace/fabbricasemanticajsweet/webapp",
+      "jsDirPath": "META-INF/resources/webjars/jsweet-core/6",
+      "jsFilesPaths": []
+    }
+  ]
+}
